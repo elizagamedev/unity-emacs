@@ -49,7 +49,7 @@ namespace Emacs {
           proc.StartInfo.UseShellExecute = false;
           proc.Start();
         }
-      } catch (Exception e) {
+      } catch (Exception) {
         Debug.LogError("Could not start Emacs. Check your Preferences.");
       }
       return true;
