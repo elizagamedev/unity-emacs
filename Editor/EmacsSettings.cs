@@ -30,7 +30,7 @@ namespace Emacs {
         ".cs,.txt,.js,.javascript,.json,.html,.shader,.template,.proto";
 
     public static bool Enabled {
-      get { return EditorPrefs.GetBool(_enabledName, true); }
+      get { return EditorPrefs.GetBool(_enabledName, false); }
       set { EditorPrefs.SetBool(_enabledName, value); }
     }
 

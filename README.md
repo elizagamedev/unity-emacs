@@ -2,6 +2,10 @@
 
 Open text files in Unity in Emacs.
 
+Note that after you install this package, it will be **disabled** by default.
+This is so that you do not inadvertently break all of your team members'
+workflows by installing this package. See [Configuration](#configuration).
+
 ## Why not just use Editor Settings?
 
 I use the Omnisharp language server with Emacs, and in some versions of Unity,
