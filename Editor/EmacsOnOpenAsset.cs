@@ -1,9 +1,9 @@
 using System.IO;
+using System.Text.RegularExpressions;
 using System;
 using UnityEditor.Callbacks;
 using UnityEditor;
 using UnityEngine;
-using System.Linq;
 
 namespace Emacs {
 
@@ -15,7 +15,9 @@ namespace Emacs {
     }
 #endif
 
+#if UNITY_2019_2_OR_NEWER
     [OnOpenAssetAttribute()]
+#endif
     public static bool OnOpenAsset(int instanceID, int line, int column) {
       if (!EmacsSettings.Enabled) {
         return false;
@@ -24,11 +26,7 @@ namespace Emacs {
       UnityEngine.Object selectedObject = EditorUtility.InstanceIDToObject(instanceID);
       string filePath = AssetDatabase.GetAssetPath(selectedObject);
 
-      string fileExtension = Path.GetExtension(filePath);
-      if (string.IsNullOrEmpty(fileExtension)) {
-        return false;
-      }
-      if (!EmacsSettings.EnumerableFileExtensions.Contains(fileExtension.ToLower())) {
+      if (!Regex.Match(filePath, EmacsSettings.FileMatchPattern, RegexOptions.IgnoreCase).Success) {
         return false;
       }
 
@@ -44,8 +42,8 @@ namespace Emacs {
       try {
         using (System.Diagnostics.Process proc = new System.Diagnostics.Process()) {
           proc.StartInfo.FileName = EmacsSettings.EmacsclientPath;
-          proc.StartInfo.Arguments =
-              $"-n --alternate-editor= +{line}:{column} \"{completeFilePath}\"";
+          proc.StartInfo.Arguments = String.Format("-n --alternate-editor= +{0}:{1} \"{2}\"", line,
+                                                   column, completeFilePath);
           proc.StartInfo.UseShellExecute = false;
           proc.Start();
         }
@@ -54,6 +52,13 @@ namespace Emacs {
       }
       return true;
     }
+
+#if !UNITY_2019_2_OR_NEWER
+    [OnOpenAssetAttribute()]
+    public static bool OnOpenAsset(int instanceID, int line) {
+      return OnOpenAsset(instanceID, line, -1);
+    }
+#endif
   }
 
 }

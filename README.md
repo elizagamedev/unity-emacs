@@ -14,15 +14,28 @@ Studio as my editor.
 
 ## Installation
 
+### Unity 2019.x and Later
+
 See the Unity documentation for [Git
 dependencies](https://docs.unity3d.com/Manual/upm-git.html).
 
 ```json
 {
   "dependencies": {
-    "sh.eliza.unity": "https://github.com/elizagamedev/unity-emacs.git#v0.1.0"
+    "sh.eliza.unity": "https://github.com/elizagamedev/unity-emacs.git#v1.0.0"
   }
 }
+```
+
+### Older Unity Versions
+
+Simply clone or download the repo and place it in your project's Assets folder.
+
+```shell
+$ pwd
+/some/unity/project/Assets
+
+$ git clone https://github.com/elizagamedev/unity-emacs.git#v1.0.0
 ```
 
 ## Configuration
