@@ -35,7 +35,7 @@ Simply clone or download the repo and place it in your project's Assets folder.
 $ pwd
 /some/unity/project/Assets
 
-$ git clone https://github.com/elizagamedev/unity-emacs.git#v1.0.0
+$ git clone https://github.com/elizagamedev/unity-emacs.git -b v1.0.0
 ```
 
 ## Configuration
