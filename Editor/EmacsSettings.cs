@@ -40,12 +40,12 @@ namespace Emacs {
       public EmacsSettingsProvider() : base("Preferences/Emacs", SettingsScope.User) {}
 
       public override void OnGUI(string searchContext) {
-        OnGUI();
+        EmacsSettings.OnGUI();
       }
 
       [SettingsProvider]
       public static SettingsProvider CreateSettingsProvider() {
-        return new EmacsSettings();
+        return new EmacsSettingsProvider();
       }
     }
 #else
