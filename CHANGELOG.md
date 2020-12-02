@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - Replaced filename extension preference with filename regex.
 - Fixed `OnOpenAssetAttribute()` error for Unity 2019.2 and lower.
+- Fixed Editor asmdef to not throw errors on standalone builds.
 
 ## [0.1.0] - 2020-11-26
 ### Added
