@@ -40,6 +40,6 @@ $ git clone https://github.com/elizagamedev/unity-emacs.git -b v1.0.0
 
 ## Configuration
 
-Check `Edit -> Project Settings -> Emacs` to toggle the feature on or off,
+Check `Edit -> Preferences -> Emacs` to toggle the feature on or off,
 configure the path to `emacsclient`, and select the list of file extensions you
 want to use.
