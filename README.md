@@ -1,4 +1,6 @@
-# unity-emacs
+# unity-emacs (Deprecated)
+
+*Please use [unity.el](https://github.com/elizagamedev/unity.el) instead.*
 
 Open text files in Unity in Emacs.
 
